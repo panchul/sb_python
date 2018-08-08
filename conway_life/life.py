@@ -41,7 +41,7 @@ def advance(board):
     return newstate
 
 def pretty_print(board):
-    print board
+    print(board)
     
 
 glider = set([(0,0),(1,0),(2,0),(2,1),(1,2)])
