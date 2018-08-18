@@ -1,0 +1,26 @@
+/usr/local/bin/python3.6 /.../keras_demo_skeleton/maximizer.py
+Using TensorFlow backend.
+defining name as default,  default_app_name
+defining config_filename as default,  config/config.json
+   Running since  Sat Aug 18 11:46:02 2018  for  0.00013589859008789062  seconds
+   flags['name'] is  default_app_name
+   flags['quiet'] is  False
+   flags['debug'] is  False
+   flags['unattended'] is  False
+   flags['config_filename'] is  config/config.json
+   self.data is  {'scenario': 'housing', 'datafile': 'data/housing.data'}
+Starting default_app_name
+Scenario housing
+data loaded in  0.005669116973876953  seconds
+2018-08-18 11:46:02.996450: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+step 1: done in  69.10927605628967  seconds
+Results: -32.13 (21.87) MSE
+step 2: done in  43.720564126968384  seconds
+Standardized: -29.33 (27.62) MSE
+step 3: done in  56.629843950271606  seconds
+Larger: -23.33 (26.90) MSE
+step 4 done in  113.75146198272705  seconds
+Wider: -21.32 (24.99) MSE
+All done. Have a great day!
+
+Process finished with exit code 0
