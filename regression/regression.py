@@ -2,6 +2,8 @@
 '''
 
 https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html
+https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html
+
 regression.py from the internet as a demo snippet of Python:
 
 
@@ -29,6 +31,13 @@ Example Data
 ============
 
 The example is from http://mldata.org/repository/data/viewslug/stockvalues/
+that link does not work anymore. Here's an alternative.
+https://web.archive.org/web/20180322001455/http://mldata.org/repository/data/viewslug/stockvalues/
+Found it here:
+(https://github.com/microsoft/python-sklearn-regression-cookiecutter/blob/master/%7B%7Bcookiecutter.app_name%7D%7D/regression.py)
+
+
+
 It contains stock prices and the values of three indices for each day
 over a five year period. See the linked page for more details about
 this data set.
@@ -43,7 +52,10 @@ absolute values.
 
 
 # Remember to update the script for the new data when you change this URL
-URL = "http://mldata.org/repository/data/download/csv/stockvalues/"
+
+#URL = "http://mldata.org/repository/data/download/csv/stockvalues/"
+URL = "https://raw.githubusercontent.com/microsoft/python-sklearn-regression-cookiecutter/master/stockvalues.csv"
+
 
 # This is the column of the sample data to predict.
 # Try changing it to other integers between 1 and 155.
@@ -84,8 +96,9 @@ def download_data():
     #service.get_blob_to_path(container_name, blob_name, 'my_data.csv')
     #frame = read_table('my_data.csv', ...
 
-    frame = read_table(
-        URL,
+    frame = read_table('stockvalues.csv',
+    #frame = read_table(
+    #    URL,
         # Uncomment if the file needs to be decompressed
         #compression='gzip',
         #compression='bz2',
