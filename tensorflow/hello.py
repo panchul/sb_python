@@ -1,3 +1,11 @@
+#
+# if you do not have tensorflow,
+# run:
+#  $ pip3 install tensorflow
+#
+# if you do not have pip3, run:
+#  $ sudo apt install python3-pip
+#
 import tensorflow as tf
 mnist = tf.keras.datasets.mnist
 
