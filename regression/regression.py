@@ -7,6 +7,14 @@ https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html
 regression.py from the internet as a demo snippet of Python:
 
 
+To run it on a fresh system
+
+    $ sudo apt install python3
+    $ sudo apt install python3-pip
+    $ pip3 install pandas matplotlib sklearn
+    $ python3 regression.py 
+
+
 '''
 
 '''
