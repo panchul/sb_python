@@ -14,9 +14,19 @@ from sklearn.model_selection import train_test_split
 import pandas as pd
 import matplotlib.pyplot as plt
 # for Jupyter notebooks might want this
-# %matplotlib inline
+#%matplotlib inline
 ## it translates into
-## get_ipython().run_line_magic('matplotlib', 'inline')
+##get_ipython().run_line_magic('matplotlib', 'inline')
+
+#plt.interactive(False)
+
+have_cuda = torch.cuda.is_available()
+
+print(f"have_cuda: {have_cuda}: {torch.cuda.get_device_name(torch.cuda.current_device())}")
+
+if not have_cuda:
+	exit
+ 
 
 class Model(nn.Module):
     def __init__(self, in_features=4, h1=8, h2=9, out_features=3):
@@ -31,7 +41,7 @@ class Model(nn.Module):
         x = self.out(x)
         return x
 
-#torch.manual_seed(123)
+torch.manual_seed(123)
 non_gpu_model = Model()
 
 # From the discussions here: discuss.pytorch.org/t/how-to-check-if-model-is-on-cuda
@@ -96,6 +106,9 @@ print(f'Training')
 epochs = 100
 losses = []
 
+import time
+mystart = time.time()
+
 for i in range(epochs):
     i+=1
     y_pred = gpumodel.forward(X_train)
@@ -110,6 +123,8 @@ for i in range(epochs):
     loss.backward()
     optimizer.step()
 
+myend = time.time()
+print(f"Total time for training {epochs} epochs was {myend-mystart}\n")
 
 plt.plot(range(epochs), losses)
 plt.ylabel('Loss')
@@ -167,7 +182,8 @@ for i, ax in enumerate(axes.flat):
 fig.legend(labels=labels, loc=3, bbox_to_anchor=(1.0,0.85))
 plt.show()
 
+
 with torch.no_grad():
-    print(gpumodel(mystery_iris))
+    print(gpumodel(mystery_iris.cuda()))
     print()
-    print(labels[gpumodel(mystery_iris).argmax()])
+    print(labels[gpumodel(mystery_iris.cuda()).argmax()])

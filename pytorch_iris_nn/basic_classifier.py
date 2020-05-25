@@ -79,7 +79,7 @@ class Model(nn.Module):
         x = self.out(x)
         return x
 
-#torch.manual_seed(123)
+torch.manual_seed(123)
 model = Model()
 
 print(f'Getting data into the dataframe')
@@ -127,6 +127,9 @@ print(f'Training')
 epochs = 100
 losses = []
 
+import time
+mystart = time.time()
+
 for i in range(epochs):
     i+=1
     y_pred = model.forward(X_train)
@@ -140,6 +143,9 @@ for i in range(epochs):
     optimizer.zero_grad()
     loss.backward()
     optimizer.step()
+
+myend = time.time()
+print(f"Total time for training {epochs} epochs was {myend-mystart}\n")
 
 
 plt.plot(range(epochs), losses)
