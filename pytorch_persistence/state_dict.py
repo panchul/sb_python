@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 # simple classifier on the 'wine' dataset from internet
+# https://archive.ics.uci.edu/ml/machine-learning-databases/wine/wine.data
 #
 
 import pandas as pd

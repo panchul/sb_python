@@ -1,28 +1,25 @@
 #!/usr/bin/env python
 # coding: utf-8
-# simple classifier on the 'wine' dataset from internet
+# ## Binary Classification
 # https://archive.ics.uci.edu/ml/machine-learning-databases/wine/wine.data
-#
+
 import pandas as pd
 import numpy as np
 import torch
 import torch.nn as nn
-import torch.optim as optim
 from torch.nn import functional as F
 
-# get it from internet
-wine_data = pd.read_csv('wine_data.csv')
-
 wine_features = wine_data.drop('Class', axis = 1)
+wine_features.sample(5)
+
 wine_target = wine_data[['Class']]
+wine_target.sample(5)
 
 from sklearn.model_selection import train_test_split
-
 X_train, x_test, Y_train, y_test = train_test_split(wine_features,
                                                     wine_target,
                                                     test_size=0.4,
                                                     random_state=0)
-
 Xtrain_ = torch.from_numpy(X_train.values).float()
 Xtest_ = torch.from_numpy(x_test.values).float()
 
@@ -49,22 +46,14 @@ class Net(nn.Module):
 
 model = Net()
 
+import torch.optim as optim
+
 optimizer = optim.Adam(model.parameters(), lr = 0.01)
 loss_fn = nn.NLLLoss()
 
-checkpoint = torch.load('wine_checkpoint.pth')
+epochs = 1000
 
-model.load_state_dict(checkpoint['model_state_dict'])
-optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
-start_epoch = checkpoint['epoch']
-loss = checkpoint['loss']
-
-model.train()
-
-# doing more epochs from where we left
-epochs = 500
-
-for epoch in range(start_epoch, epochs):
+for epoch in range(epochs):
 
     optimizer.zero_grad()
     Ypred = model(Xtrain_)
@@ -78,7 +67,14 @@ for epoch in range(start_epoch, epochs):
         print ('Epoch', epoch, 'loss', loss.item())
 
 
-predict_out = model(Xtest_)
+#list(model.parameters())
+
+torch.save(model, 'classifier.pt')
+
+# Loading Model
+new_model = torch.load('classifier.pt')
+
+predict_out = new_model(Xtest_)
 _, predict_y = torch.max(predict_out, 1)
 
 from sklearn.metrics import accuracy_score, precision_score, recall_score
