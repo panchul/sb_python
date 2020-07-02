@@ -1,5 +1,6 @@
-x=(i for i in range(3))
+
+x = (i for i in range(3))
 for j in x:
-   print(j)
+    print(j)
 for j in x:
-   print(j)
+    print(j)

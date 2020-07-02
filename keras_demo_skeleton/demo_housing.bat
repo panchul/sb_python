@@ -1,4 +1,9 @@
-
+#
+# pip install pandas
+# pip install keras
+# pip install tensorflow
+# pip install sklearn
+#
 
 REM Windows crap
 

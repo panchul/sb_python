@@ -1,4 +1,3 @@
-
 #
 # tensorflow demo
 #
@@ -10,11 +9,12 @@ import matplotlib.pyplot as plt
 import tensorflow as tf
 import time
 
+
 def get_times(maximum_time):
 
     device_times = {
-        "/gpu:0":[],
-        "/cpu:0":[]
+        "/gpu:0": [],
+        "/cpu:0": []
     }
     matrix_sizes = range(500,50000,50)
 
@@ -29,7 +29,6 @@ def get_times(maximum_time):
                 r1 = tf.random_uniform(shape=shape, minval=0, maxval=1, dtype=data_type)
                 r2 = tf.random_uniform(shape=shape, minval=0, maxval=1, dtype=data_type)
                 dot_operation = tf.matmul(r2, r1)
-
 
             with tf.Session(config=tf.ConfigProto(log_device_placement=True)) as session:
                     start_time = time.time()
