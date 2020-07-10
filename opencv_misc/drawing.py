@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-img = np.zeros((200,320,3),  # ! (height, width, colorspace)
+img = np.zeros((200, 320, 3),  # ! (height, width, colorspace)
                np.uint8)
 cv2.imshow("the img", img)
 cv2.waitKey(0)

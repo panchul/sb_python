@@ -14,8 +14,8 @@ import matplotlib.pyplot as plt
 
 # torch.manual_seed(123)
 
-X = torch.linspace(1,50,50).reshape(-1,1)
-e = torch.randint(-8,9,(50,1), dtype=torch.float)
+X = torch.linspace(1,50,50).reshape(-1, 1)
+e = torch.randint(-8, 9, (50, 1), dtype=torch.float)
 y = 2*X + 1 + e
 
 #plt.scatter(X.numpy(), y.numpy())
@@ -29,9 +29,9 @@ class Model(nn.Module):
         self.linear = nn.Linear(in_features, out_features)
 
     def forward(self, x):
-        # y_pred = self.linear(x)
-        # return y_pred
-        return self.linear(x)
+        # return self.linear(x)
+        y_pred = self.linear(x)
+        return y_pred
 
 model = Model(1, 1)
 print("The model: ", model)
@@ -52,12 +52,13 @@ epochs = 20
 losses = []
 
 for i in range(epochs):
-    i+=1
+    i += 1
     y_pred = model.forward(X)
     loss = criterion(y_pred, y)
     losses.append(loss)
     print(f'epoch: {i:2}  loss: {loss.item():10.8f} \
-weight: {model.linear.weight.item():10.8f} bias: {model.linear.bias.item():10.8f}')
+    weight: {model.linear.weight.item():10.8f} \
+    bias: {model.linear.bias.item():10.8f}')
     optimizer.zero_grad()
     loss.backward()
     optimizer.step()
@@ -67,19 +68,19 @@ plt.ylabel('Loss')
 plt.xlabel('epoch');
 plt.show()
 
-w1,b1 = model.linear.weight.item(), model.linear.bias.item()
+w1, b1 = model.linear.weight.item(), model.linear.bias.item()
 print(f"Final weight: {w1:.8f}, Final bias: {b1:.8f}")
 print()
 
-x1 = np.array([X.min(),X.max()])
+x1 = np.array([X.min(), X.max()])
 y1 = x1*w1 + b1
 print("x axis range(the initial values, really): ", x1)
 print("y axis range(what we got via y1=x1*w1+b1 the final weight and bias): ", y1)
 
 plt.scatter(X.numpy(), y.numpy())
-plt.plot(x1,y1,'r')
+plt.plot(x1, y1, 'r')
 plt.title("Current Model")
 plt.ylabel('y')
-plt.xlabel('x');
+plt.xlabel('x')
 plt.show()
 #plt.savefig('example_figure.png')

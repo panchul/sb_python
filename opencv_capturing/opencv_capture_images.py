@@ -4,6 +4,11 @@ import cv2
 import numpy as np
 
 capture = cv2.VideoCapture(0)
+# you can set it to what you want, e.g.:
+# cap = cv2.VideoCapture(0)
+# cap.set(3, frameWidth)
+# cap.set(4, frameHeight)
+
 frame_width = int(capture.get(3))
 frame_height = int(capture.get(4))
 frame_index = 1
@@ -12,6 +17,14 @@ if capture.isOpened is False:
     print("error while opening the camera")
 
 while capture.isOpened():
+
+    # This is how to wrap around the video stream if needed:
+    # frameCounter +=1
+    # if cap.get(cv2.CAP_PROP_FRAME_COUNT) == frameCounter:
+    #    cap.set(cv2.CAP_PROP_POS_FRAMES,0)
+    #     frameCounter=0
+    # _, img = cap.read()
+    
     ret, frame = capture.read()
     if ret is True:
         cv2.imshow("input frame", frame)
