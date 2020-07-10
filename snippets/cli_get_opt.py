@@ -1,4 +1,11 @@
 #!/usr/bin/python
+
+# There is a better way to handle options, using argparse
+# https://docs.python.org/3/library/argparse.html
+# https://pymotw.com/2/argparse/
+
+
+
 #
 # usage: test.py -i <inputfile> -o <outputfile>
 #
