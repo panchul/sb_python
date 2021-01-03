@@ -11,8 +11,8 @@ import re
 import requests
 import urllib.request
 
-#link = input("url: ")
-link = "https://www.facebook.com/panchul/videos/10156791602064936"
+link = input("url: ")
+#link = "https://www.facebook.com/panchul/videos/10156791602064936"
 html = requests.get(link)
 
 try:
