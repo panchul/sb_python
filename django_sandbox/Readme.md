@@ -18,7 +18,8 @@ It will create the needed files and subfolder `djsandbox`. Go there and run:
 
 It runs a development server. It shows the url where it hosts it, http://127.0.0.1:8000. `Ctrl-C` to stop it.
 
-To create a web app, run this in the djsanbox folder:
+To create a Django app, run this in the Django(`djsanbox`) folder, it creates a Python package,
+you can then import it and use:
 
     $ python manage.py startapp website
 

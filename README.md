@@ -15,11 +15,20 @@ I will gradually migrate the notes I have to this repository.
 **Content**
 
 - [Installing](Readme.md#Installing)
+- [Web-related](Readme.md#Web-related)
 - [Miscellaneous](Readme.md#Miscellaneous)
 
 ---
 
 ## Installing
+
+---
+
+## Web-related
+
+---
+
+Some useful Django-relate tips and tricks are at [https://github.com/panchul/workspace/blob/master/doc/Django.md](https://github.com/panchul/workspace/blob/master/doc/Django.md)
 
 ---
 
