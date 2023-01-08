@@ -24,6 +24,12 @@ I will gradually migrate the notes I have to this repository.
 
 ---
 
+See installing in [my Workspace doc page](https://github.com/panchul/workspace/blob/master/doc/Python.md#installing).
+
+Best practice is to do it in environments, so the dependencies are not that much of a headache.
+
+---
+
 ## Web-related
 
 ---
