@@ -1,35 +1,15 @@
 
-This is initially from [an online tutorial](https://github.com/Coding-with-Adam)
-
-Because of some messy dependencies, I used `pyenv` and `venv` to try it out:
-
-Make sure your Python version is ok for the `requirements.txt` that we are about to load:
+Had to get dash-cytoscape:
 
 ```bash
-pyenv install 3.10
-pyenv global 3.10
+pip install dash plotly dash-cytoscape
 ```
 
-```bash
-python -m venv mydashenv
-. mydashenv/bin/activate
-```
-```bash
-pip install -r src/requirements.txt
-
-pip install gunicorn
-```
-
-You could use a cloud instance or http://render.com to host it. But you can just run `python app.py`, or better yet (use something like `-b 127.0.0.1:8001` to bind to a spceific address:port):
+Had to downgrade the verison using pyenv:
 
 ```bash
-cd src
-gunicorn app:server   # app is the name of the file, app.py
-```
-
-Here's an actual test run:
-
-```bash
+example_deploying % pyenv install 3.10
+example_deploying % pyenv global 3.10
 example_deploying % python --version
 Python 3.10.15
 
