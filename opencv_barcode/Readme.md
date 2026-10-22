@@ -8,6 +8,7 @@ See more in my OpenCV notes:
 
 To install pre-reqs:
 
+```bash
     # pip install opencv-python 
     # pip install pillow 
     # The zbar DLLs are included with the Windows Python wheels. On other operating systems,
@@ -18,9 +19,11 @@ To install pre-reqs:
     # pip install pyzbar
     # Window :
     #  pip install pyzbar
+```
 
 To play around in Python command line:
 
+```bash
     >>> from pyzbar import pyzbar
     >>> from PIL import Image
     >>> info = pyzbar.decode(Image.open('sample_barcode.png'))
@@ -35,11 +38,12 @@ To play around in Python command line:
     Decoded(data=b'http://en.m.wikipedia.org', type='QRCODE', rect=Rect(left=17, top=15,
     width=147, height=147), polygon=[Point(x=17, y=15), Point(x=17, y=162), Point(x=164,
     y=162), Point(x=164, y=15)])]
-
+```
 
 To run the program:
 
+```bash
     $ python barcode_reader.py
-    
-To stop it, press `Esc` in the camera window.
+```
 
+To stop it, press `Esc` in the camera window.

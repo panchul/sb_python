@@ -1,0 +1,10 @@
+2026-10-22 10:45:40,728 - DEBUG - Debug message
+2026-10-22 10:45:40,728 - INFO - Info message
+2026-10-22 10:45:40,728 - WARNING - Warning message
+2026-10-22 10:45:40,728 - ERROR - Error message
+2026-10-22 10:45:40,728 - CRITICAL - Critical message
+2026-10-22 10:45:40,728 - INFO - Application started
+2026-10-22 10:45:40,728 - WARNING - This is a warning
+2026-10-22 10:45:40,728 - ERROR - This is an error
+2026-10-22 10:45:40,728 - CRITICAL - This is critical
+2026-10-22 10:45:40,728 - INFO - This is an info message

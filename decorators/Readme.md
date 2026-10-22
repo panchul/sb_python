@@ -4,7 +4,7 @@
 
 Example of a decorator for a function(from https://www.geeksforgeeks.org/decorators-in-python/):
 
-```
+```python
 '''
 % python runit.py
 400
@@ -45,7 +45,7 @@ print(num2())
 
 A decorator for a class(from https://builtin.com/software-engineering-perspectives/python-class-decorator):
 
-```
+```python
 class Power(object):
 	def __init__(self, arg):
 		self._arg = arg
@@ -66,7 +66,7 @@ print(multiply_together(2, 2))
 
 And even better, with a static info about calls(from https://builtin.com/software-engineering-perspectives/python-class-decorator):
 
-```
+```python
 class Power(object):
     def __init__(self, arg):
         self._arg = arg
@@ -93,7 +93,7 @@ print(multiply_together.memory())
 
 A test run:
 
-```
+```bash
 % python runit.py
 <__main__.Power object at 0x7f9c4e1235d0>
 16
